@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'sprockets', '2.12.3'
 
+gem 'angular-rails-templates'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
