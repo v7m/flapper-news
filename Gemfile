@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-
+gem 'angular_rails_csrf'
 gem 'sprockets', '2.12.3'
 gem 'responders', '~> 2.0'
 gem 'angular-rails-templates'

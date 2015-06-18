@@ -30,10 +30,10 @@ Rails.application.routes.draw do
     resources :comments, only: [:show, :create] do
       member do
         put '/upvote' => 'comments#upvote'
-      end  
-      member do
-        put '/upvote' => 'posts#upvote'
-      end 
+      end   
+    end
+    member do
+      put '/upvote' => 'posts#upvote'
     end
   end    
 
