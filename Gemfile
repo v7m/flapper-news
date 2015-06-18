@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'devise', '~> 3.4.0'
 gem 'angular_rails_csrf'
 gem 'sprockets', '2.12.3'
 gem 'responders', '~> 2.0'
