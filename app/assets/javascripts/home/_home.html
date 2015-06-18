@@ -3,19 +3,25 @@
 </div>
 
 <div ng-repeat="post in posts | orderBy:'-upvotes'">
-  	<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
-  	{{post.upvotes}}
-  	<span style="font-size:20px; margin-left:10px;">
-    	<a ng-show="post.link" href="{{post.link}}">
-      		{{post.title}}
-    	</a>
-    	<span ng-hide="post.link">
-      		{{post.title}}
-    	</span>
-  	</span>
-  	<span>
-    	<a href="#/posts/{{post.id}}">Comments</a>
-  	</span>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
+      {{post.upvotes}}
+
+      posted by <a ng-href="#/users/{{ post.user.username }}"> {{ post.user.username }} </a>
+
+      <a href="#/posts/{{post.id}}">Comments</a>
+    </div>
+    <div class="panel-body">
+      <a ng-show="post.link" href="{{post.link}}">
+        {{post.title}}
+      </a>
+      <span ng-hide="post.link">
+        {{post.title}}
+      </span>
+    </div>
+  </div>
 </div>
 
 <form ng-submit="addPost()" style="margin-top:30px;">
