@@ -1,12 +1,14 @@
 <div class="page-header">
-    <h1>Flapper News</h1>
+    <h1 style='color:#337ab7'><center>Flapper News</center></h1>
 </div>
 <table style="width:100%;">
     <tbody>
         <tr ng-repeat="post in posts | orderBy:'-upvotes'">
             <td valign="top">
-                <center>
-                    <span  class="glyphicon glyphicon-triangle-top" style="font-size:1.5em;" ng-click="incrementUpvotes(post)"></span><br>
+                <a role='button'>
+                    <center><span  class="glyphicon glyphicon-triangle-top" style="font-size:1.5em;" ng-click="incrementUpvotes(post)"></span></center>
+                </a>
+                <center>    
                     <span style="font-size:1.5em;">{{post.upvotes}}</span>
                 </center>  
             </td>
@@ -33,7 +35,7 @@
         </tr>
     <tbody>
 </table>
-<form ng-submit="addPost()" style="margin-top:30px;">
+<form ng-show="signedIn()" ng-submit="addPost()" style="margin-top:30px;">
     <h3>Add a new post</h3>
 
     <div class="form-group">
@@ -44,3 +46,4 @@
     </div>
     <button type="submit" class="btn btn-primary">Post</button>
 </form>
+<h3 ng-hide="signedIn()">You have to Login to create new post!</h3>

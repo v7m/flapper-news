@@ -1,40 +1,61 @@
-<div class="page-header">
-    <h1>Flapper News</h1>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading">
-      <a href="#/posts/{{post.id}}">
-        {{post.title}}
-      </a>
-
-      posted by <a ng-href="#/users/{{ post.user.username }}"> {{ post.user.username }} </a>
-
-      <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
-      {{post.upvotes}}
-
-      <a href="#/posts/{{post.id}}">Comments</a>
-    </div>
-    <div class="panel-body">
-      
-      <span ng-hide="post.link">
-        {{post.body}}
-      </span>
-    </div>
-  </div>
-</div>  
-
+<table style="width:100%; border-bottom: 1px solid #eee">
+    <tbody>
+        <tr>
+            <td valign="top">
+                <a role='button'>
+                    <center><span class="glyphicon glyphicon-triangle-top" style="font-size:1.5em;" ng-click="incrementPostUpvotes(post)"></span></center>
+                </a>    
+                <center>
+                    <span style="font-size:1.5em;">{{post.upvotes}}</span>
+                </center>  
+            </td>
+            <td style='padding-left: 15px;'>
+                <a href="#/posts/{{post.id}}">
+                    <span style="font-size:1.5em;"> {{post.title}} </span>
+                </a>
+                <br>
+                <span style="font-size:0.8em;">
+                    <a href="#/posts/{{post.id}}">
+                        Comments ({{ post.comments.length }})
+                    </a>;
+                    posted by 
+                    <a ng-href="#/users/{{ post.user.username }}"> 
+                        {{ post.user.username }} 
+                    </a>
+                </span>     
+                <br> 
+                <div class="well well-sm">   
+                    {{post.body}}
+                </div>    
+                            
+            </td>
+        </tr>
+    <tbody>
+</table> 
+<br>
 <div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
-  	<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span>
-  	{{comment.upvotes}} - by {{comment.user.username}}
-  	<span style="font-size:20px; margin-left:10px;">
-    	{{comment.body}}
-  	</span>
+    <div class='well well-sm'>
+        <span style="margin-left:10px;">
+            {{comment.upvotes}}
+            <a role='button'>
+                <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span>
+            </a>    
+            <span style="font-size:0.8em;">
+                by {{comment.user.username}}
+            </span> 
+            <br>
+            <span style="margin-left:20px;">
+                {{comment.body}}
+            </span>
+        </span>
+    </div> 
 </div>
-<form ng-submit="addComment()" style="margin-top:30px;">
-  	<h3>Add a new comment</h3>
+<form ng-show="signedIn()" ng-submit="addComment()" style="margin-top:30px;">
+    <h3>Add a new comment</h3>
 
-  	<div class="form-group">
-    	<input type="text" class="form-control" placeholder="Comment" ng-model="body"></input>
-  	</div>
-  	<button type="submit" class="btn btn-primary">Post</button>
+    <div class="form-group">
+        <textarea rows = '3' class="form-control" placeholder="Comment" ng-model="body"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Post</button>
 </form>
+<h3 ng-hide="signedIn()">You have to Login to create new comment!</h3>

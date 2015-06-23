@@ -1,6 +1,7 @@
 angular.module('flapperNews')
-	.controller('PostsCtrl', ['$scope', 'posts', 'post',
-	  function($scope, posts, post) {
+	.controller('PostsCtrl', ['$scope', 'posts', 'post', 'Auth',
+	  function($scope, posts, post, Auth) {
+	  	$scope.signedIn = Auth.isAuthenticated;
 	    $scope.post = post;
 	    $scope.addComment = function(){
   			if($scope.body === '') { return; }
@@ -15,4 +16,7 @@ angular.module('flapperNews')
 	    $scope.incrementUpvotes = function(comment) {
 	    	posts.upvoteComment(post, comment);
 	  	};
+	  	$scope.incrementPostUpvotes = function(post) {
+      		posts.upvote(post);
+    	};
 	}])

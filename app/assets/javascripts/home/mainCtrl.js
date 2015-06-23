@@ -1,5 +1,6 @@
 angular.module('flapperNews')
-  .controller('MainCtrl', ['$scope', 'posts', function($scope, posts) {
+  .controller('MainCtrl', ['$scope', 'posts', 'Auth', function($scope, posts, Auth) {
+    $scope.signedIn = Auth.isAuthenticated;
     $scope.posts = posts.posts;
     $scope.addPost = function() {
       emptyFields = (!$scope.title || $scope.title === '') && (!$scope.body || $scope.body === '')
