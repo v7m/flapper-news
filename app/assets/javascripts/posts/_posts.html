@@ -1,13 +1,27 @@
 <div class="page-header">
-  	<h3>
-    	<a ng-show="post.link" href="{{post.link}}">
-      		{{post.title}}
-    	</a>
-    	<span ng-hide="post.link">
-      		{{post.title}}
-    	</span>
-  	</h3>
+    <h1>Flapper News</h1>
 </div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <a href="#/posts/{{post.id}}">
+        {{post.title}}
+      </a>
+
+      posted by <a ng-href="#/users/{{ post.user.username }}"> {{ post.user.username }} </a>
+
+      <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
+      {{post.upvotes}}
+
+      <a href="#/posts/{{post.id}}">Comments</a>
+    </div>
+    <div class="panel-body">
+      
+      <span ng-hide="post.link">
+        {{post.body}}
+      </span>
+    </div>
+  </div>
+</div>  
 
 <div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
   	<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span>
