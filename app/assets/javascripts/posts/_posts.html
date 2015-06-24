@@ -7,7 +7,10 @@
                 </a>    
                 <center>
                     <span style="font-size:1.5em;">{{post.upvotes}}</span>
-                </center>  
+                </center> 
+                <a role='button'>
+                    <center><span class="glyphicon glyphicon-triangle-bottom" style="font-size:1.5em;" ng-click="decrementPostUpvotes(post)"></span></center>
+                </a>  
             </td>
             <td style='padding-left: 15px;'>
                 <a href="#/posts/{{post.id}}">
@@ -38,8 +41,11 @@
         <span style="margin-left:10px;">
             {{comment.upvotes}}
             <a role='button'>
-                <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span>
-            </a>    
+                <span class="glyphicon glyphicon-triangle-top" ng-click="incrementUpvotes(comment)"></span>
+            </a>   
+            <a role='button'>
+                <span class="glyphicon glyphicon-triangle-bottom" ng-click="decrementUpvotes(comment)"></span>
+            </a> 
             <span style="font-size:0.8em;">
                 by {{comment.user.username}}
             </span> 
@@ -58,4 +64,4 @@
     </div>
     <button type="submit" class="btn btn-primary">Post</button>
 </form>
-<h3 ng-hide="signedIn()">You have to Login to create new comment!</h3>
+<center><h3 ng-hide="signedIn()">You have to Login to create new comment!</h3></center>

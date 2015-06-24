@@ -10,7 +10,10 @@
                 </a>
                 <center>    
                     <span style="font-size:1.5em;">{{post.upvotes}}</span>
-                </center>  
+                </center> 
+                <a role='button'>
+                    <center><span  class="glyphicon glyphicon-triangle-bottom" style="font-size:1.5em;" ng-click="decrementUpvotes(post)"></span></center>
+                </a>
             </td>
             <td style='padding-left: 15px;'>
                 <a href="#/posts/{{post.id}}">
@@ -46,4 +49,4 @@
     </div>
     <button type="submit" class="btn btn-primary">Post</button>
 </form>
-<h3 ng-hide="signedIn()">You have to Login to create new post!</h3>
+<center><h3 ng-hide="signedIn()">You have to Login to create new post!</h3></center>

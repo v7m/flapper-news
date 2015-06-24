@@ -18,6 +18,11 @@ angular.module('flapperNews')
         post.upvotes += 1;
       });
     };
+    o.downvote = function(post) {
+      return $http.put('/posts/' + post.id + '/downvote.json').success(function(data) {
+        post.upvotes -= 1;
+      });
+    };
     o.get = function(id) {
       return $http.get('/posts/' + id + '.json').then(function(res) {
         return res.data;
@@ -30,6 +35,12 @@ angular.module('flapperNews')
       return $http.put('/posts/' + post.id + '/comments/' + comment.id + '/upvote.json')
         .success(function(data) {
           comment.upvotes += 1;
+        });
+    };
+    o.downvoteComment = function(post, comment) {
+      return $http.put('/posts/' + post.id + '/comments/' + comment.id + '/downvote.json')
+        .success(function(data) {
+          comment.upvotes -= 1;
         });
     };
     return o;

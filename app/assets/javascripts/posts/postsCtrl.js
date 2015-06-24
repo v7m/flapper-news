@@ -16,7 +16,13 @@ angular.module('flapperNews')
 	    $scope.incrementUpvotes = function(comment) {
 	    	posts.upvoteComment(post, comment);
 	  	};
+	  	$scope.decrementUpvotes = function(comment) {
+	    	posts.downvoteComment(post, comment);
+	  	};
 	  	$scope.incrementPostUpvotes = function(post) {
       		posts.upvote(post);
+    	};
+    	$scope.decrementPostUpvotes = function(post) {
+      		posts.downvote(post);
     	};
 	}])
