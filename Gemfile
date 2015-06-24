@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-sass'
+gem 'rails_12factor', group: :production
 gem 'pg'
 gem 'devise', '~> 3.4.0'
 gem 'angular_rails_csrf'
