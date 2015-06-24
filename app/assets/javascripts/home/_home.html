@@ -26,8 +26,9 @@
                 <span style="font-size:0.9em;">
                     <a href="#/posts/{{post.id}}">
                         Comments ({{ post.comments.length }})
-                    </a>;
+                    </a>
                     posted by <em>{{ post.user.username }}</em>
+                    {{post.created_at | date : "'at' h:mma MM/dd/yyyy"}}
                 </span>     
                 <br> 
                 <div class="well well-sm">   

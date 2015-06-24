@@ -22,6 +22,7 @@
                         Comments ({{ post.comments.length }})
                     </a>;
                     posted by <em>{{ post.user.username }}</em>
+                    {{post.created_at | date : "'at' h:mma MM/dd/yyyy"}}
                 </span>     
                 <br> 
                 <div class="well well-sm">   
@@ -48,6 +49,7 @@
             </a> 
             <span style="font-size:0.9em;">
                 by <em>{{comment.user.username}}</em>
+                {{post.created_at | date : "'at' h:mma MM/dd/yyyy"}}
             </span> 
             <br>
             <span style="margin-left:20px;">
