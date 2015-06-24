@@ -16,6 +16,9 @@
                 </a>
             </td>
             <td style='padding-left: 15px;'>
+                <a ng-show='user.admin' role='button'>
+                    <span  class="glyphicon glyphicon-remove" ng-click="destroyPost(post)"></span>
+                </a>
                 <a href="#/posts/{{post.id}}">
                     <span style="font-size:1.5em;"> {{post.title}} </span>
                 </a>

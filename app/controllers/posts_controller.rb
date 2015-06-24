@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!, only: [:create, :upvote]
+  before_action :authenticate_user!, only: [:create, :upvote]
+  before_action only: [:destroy] do     
+    render_404 unless current_user.admin?
+  end
 
   def index
     respond_with Post.all
@@ -25,12 +28,24 @@ class PostsController < ApplicationController
     post.decrement!(:upvotes)
 
     respond_with post
-  end 
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+
+    respond_with post
+  end  
+
 
   private
 
     def post_params
       params.require(:post).permit(:title, :body)
-    end 
+    end   
+
+    def render_500
+      render file: "#{Rails.root}/public/500.html", layout: false, status: 404
+    end  
 
 end

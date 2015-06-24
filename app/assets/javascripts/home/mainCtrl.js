@@ -1,6 +1,9 @@
 angular.module('flapperNews')
   .controller('MainCtrl', ['$scope', 'posts', 'Auth', function($scope, posts, Auth) {
     $scope.signedIn = Auth.isAuthenticated;
+    Auth.currentUser().then(function(user) {
+      $scope.user = user;
+    });
     $scope.posts = posts.posts;
     $scope.addPost = function() {
       emptyFields = (!$scope.title || $scope.title === '') && (!$scope.body || $scope.body === '')
@@ -17,5 +20,8 @@ angular.module('flapperNews')
     };
     $scope.decrementUpvotes = function(post) {
       posts.downvote(post);
+    };
+    $scope.destroyPost = function(post) {
+      posts.destroy(post);
     };
   }])

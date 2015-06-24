@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
-  resources :posts, only: [:create, :index, :show] do
+  resources :posts, only: [:create, :index, :show, :destroy] do
     resources :comments, only: [:show, :create] do
       member do
         put '/upvote' => 'comments#upvote'
