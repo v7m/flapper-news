@@ -23,14 +23,11 @@
                     <span style="font-size:1.5em;"> {{post.title}} </span>
                 </a>
                 <br>
-                <span style="font-size:0.8em;">
+                <span style="font-size:0.9em;">
                     <a href="#/posts/{{post.id}}">
                         Comments ({{ post.comments.length }})
                     </a>;
-                    posted by 
-                    <a ng-href="#/users/{{ post.user.username }}"> 
-                        {{ post.user.username }} 
-                    </a>
+                    posted by <em>{{ post.user.username }}</em>
                 </span>     
                 <br> 
                 <div class="well well-sm">   

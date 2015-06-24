@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   #     end
   #   end
   resources :posts, only: [:create, :index, :show, :destroy] do
-    resources :comments, only: [:show, :create] do
+    resources :comments, only: [:show, :create, :destroy] do
       member do
         put '/upvote' => 'comments#upvote'
       end  

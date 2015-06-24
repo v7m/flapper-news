@@ -49,5 +49,10 @@ angular.module('flapperNews')
           comment.upvotes -= 1;
         });
     };
+    o.destroyComment = function(post, comment) {
+      return $http.delete('/posts/' + post.id + '/comments/' + comment.id + '.json').success(function(data) {
+        post.comments.splice( post.comments.indexOf(comment), 1 );
+      });
+    };
     return o;
   }])
