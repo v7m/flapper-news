@@ -2,4 +2,5 @@ Ruby on Rails app with AngularJS
 
 Users for testing:
 
-User: { email: "user@example.com", password: "12345676", username: "user" }
+User: { email: "user@example.com", password: "12345678", username: "user" }
+Admin: { email: "admin@example.com", password: "12345678", username: "admin" }

@@ -25,9 +25,7 @@
                     {{post.created_at | date : "'at' h:mma MM/dd/yyyy"}}
                 </span>     
                 <br> 
-                <div class="well well-sm">   
-                    {{post.body}}
-                </div>    
+                <div class="well well-sm" ng-bind-html="post.body | nl2br"></div>    
                             
             </td>
         </tr>
@@ -51,10 +49,7 @@
                 by <em>{{comment.user.username}}</em>
                 {{post.created_at | date : "'at' h:mma MM/dd/yyyy"}}
             </span> 
-            <br>
-            <span style="margin-left:20px;">
-                {{comment.body}}
-            </span>
+            <div style="margin-left:15px;" ng-bind-html="comment.body | nl2br"></div>
         </span>
     </div> 
 </div>

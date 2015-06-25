@@ -26,14 +26,12 @@
                 <span style="font-size:0.9em;">
                     <a href="#/posts/{{post.id}}">
                         Comments ({{ post.comments.length }})
-                    </a>
+                    </a>;
                     posted by <em>{{ post.user.username }}</em>
                     {{post.created_at | date : "'at' h:mma MM/dd/yyyy"}}
                 </span>     
                 <br> 
-                <div class="well well-sm">   
-                    {{post.body}}
-                </div>    
+                <div class="well well-sm" ng-bind-html="post.body | nl2br"></div>    
                     
             </td>
         </tr>

@@ -25,3 +25,9 @@ angular.module('flapperNews')
       posts.destroy(post);
     };
   }])
+
+  .filter("nl2br", function($filter) {
+    return function(data) {
+      return data.replace(/\n\r?/g, '<br />');
+    };
+  })

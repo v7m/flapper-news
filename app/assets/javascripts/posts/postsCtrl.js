@@ -33,3 +33,9 @@ angular.module('flapperNews')
     	};
     	
 	}])
+  
+  .filter("nl2br", function($filter) {
+    return function(data) {
+      return data.replace(/\n\r?/g, '<br />');
+    };
+  })

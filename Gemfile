@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
 
+gem 'sprockets-rails', '~> 2.2.0'
+gem "bower-rails", "~> 0.9.2"
 gem 'bootstrap-sass'
 gem 'rails_12factor', group: :production
 gem 'pg'
 gem 'devise', '~> 3.4.0'
 gem 'angular_rails_csrf'
-gem 'sprockets', '2.12.3'
+gem 'sprockets', '~> 2.0'
 gem 'responders', '~> 2.0'
 gem 'angular-rails-templates'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
