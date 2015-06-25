@@ -11,17 +11,23 @@ class CommentsController < ApplicationController
   end
   
   def upvote
+    user = current_user
     post = Post.find(params[:post_id])
-    comment = post.comments.find(params[:id]) 
-    comment.increment!(:upvotes)
+    comment = post.comments.find(params[:id])
+    user.vote_for(comment)
+    comment.upvotes = comment.votes.count
+    comment.save
 
     respond_with post, comment
   end   
 
   def downvote
+    user = current_user
     post = Post.find(params[:post_id])
     comment = post.comments.find(params[:id]) 
-    comment.decrement!(:upvotes)
+    user.vote_against(comment)
+    comment.upvotes = comment.votes.count
+    comment.save
 
     respond_with post, comment
   end 

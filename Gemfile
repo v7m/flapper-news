@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'thumbs_up', git: 'https://github.com/bouchard/thumbs_up.git', ref: 'f499a7c803c0a9fdcefe4275f2f0a10ca7964508'
 gem 'sprockets-rails', '~> 2.2.0'
 gem "bower-rails", "~> 0.9.2"
 gem 'bootstrap-sass'

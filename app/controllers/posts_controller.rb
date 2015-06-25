@@ -17,15 +17,21 @@ class PostsController < ApplicationController
   end
   
   def upvote
+    user = current_user
     post = Post.find(params[:id])
-    post.increment!(:upvotes)
+    user.vote_for(post)
+    post.upvotes = post.votes.count
+    post.save
 
     respond_with post
   end 
 
   def downvote
+    user = current_user
     post = Post.find(params[:id])
-    post.decrement!(:upvotes)
+    user.vote_against(post)
+    post.upvotes = post.votes.count
+    post.save
 
     respond_with post
   end

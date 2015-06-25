@@ -14,13 +14,23 @@ angular.module('flapperNews')
       });
     };
     o.upvote = function(post) {
-      return $http.put('/posts/' + post.id + '/upvote.json').success(function(data) {
+      return $http.put('/posts/' + post.id + '/upvote.json')
+      .success(function(data) {
         post.upvotes += 1;
+      })
+      .error(function (data, status, headers, config) {
+        alert("Voteable has already been taken!");
+        return status;
       });
     };
     o.downvote = function(post) {
-      return $http.put('/posts/' + post.id + '/downvote.json').success(function(data) {
+      return $http.put('/posts/' + post.id + '/downvote.json')
+      .success(function(data) {
         post.upvotes -= 1;
+      })
+      .error(function (data, status, headers, config) {
+        alert("Voteable has already been taken!");
+        return status;
       });
     };
     o.destroy = function(post) {
@@ -41,12 +51,20 @@ angular.module('flapperNews')
       return $http.put('/posts/' + post.id + '/comments/' + comment.id + '/upvote.json')
         .success(function(data) {
           comment.upvotes += 1;
+        })
+        .error(function (data, status, headers, config) {
+          alert("Voteable has already been taken!");
+          return status;
         });
     };
     o.downvoteComment = function(post, comment) {
       return $http.put('/posts/' + post.id + '/comments/' + comment.id + '/downvote.json')
         .success(function(data) {
           comment.upvotes -= 1;
+        })
+        .error(function (data, status, headers, config) {
+          alert("Voteable has already been taken!");
+          return status;
         });
     };
     o.destroyComment = function(post, comment) {

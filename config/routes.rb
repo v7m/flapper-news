@@ -36,6 +36,8 @@ Rails.application.routes.draw do
         put '/downvote' => 'comments#downvote'
       end 
     end
+    
+
     member do
       put '/upvote' => 'posts#upvote'
     end
