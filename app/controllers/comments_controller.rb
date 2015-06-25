@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     post = Post.find(params[:post_id])
     comment = post.comments.find(params[:id])
     user.vote_for(comment)
-    comment.upvotes = comment.votes.count
+    comment.upvotes = comment.votes.where(vote: true).count - comment.votes.where(vote: false).count
     comment.save
 
     respond_with post, comment
@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
     post = Post.find(params[:post_id])
     comment = post.comments.find(params[:id]) 
     user.vote_against(comment)
-    comment.upvotes = comment.votes.count
+    comment.upvotes = comment.votes.where(vote: true).count - comment.votes.where(vote: false).count
     comment.save
 
     respond_with post, comment

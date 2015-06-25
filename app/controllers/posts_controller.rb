@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     user = current_user
     post = Post.find(params[:id])
     user.vote_for(post)
-    post.upvotes = post.votes.count
+    post.upvotes = post.votes.where(vote: true).count - post.votes.where(vote: false).count
     post.save
 
     respond_with post
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
     user = current_user
     post = Post.find(params[:id])
     user.vote_against(post)
-    post.upvotes = post.votes.count
+    post.upvotes = post.votes.where(vote: true).count - post.votes.where(vote: false).count
     post.save
 
     respond_with post
