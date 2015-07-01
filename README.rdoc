@@ -1,6 +1,11 @@
-Ruby on Rails app with AngularJS
+== Flapper News
 
-Users for testing:
+*Flapper News* - simple app that allow to share posts, comments and vote them.
 
-User: { email: "user@example.com", password: "12345678", username: "user" }
-Admin: { email: "admin@example.com", password: "12345678", username: "admin" }
+*Technologies*: Ruby on Rails, AngularJS, HTML, CSS,  JavaScript, Bootstrap, Git, PostgreSQL, RubyGems: devise, bootstrap-sass, thumbs_up, angular-rails-templates, responders, rails_12factor, bower-rails, sprockets-rails.
+
+<b>Users for testing:</b>
+* User: { email: “user@example.com”, password: “12345678”, username: “user” } 
+* Admin: { email: “admin@example.com”, password: “12345678”, username: “admin” }
+
+<b>App on Heroku:</b> https://flapper-news777.herokuapp.com 
